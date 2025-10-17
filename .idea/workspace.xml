@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f87b8db-30f9-4fa4-ab34-e2a7e7525236" name="Changes" comment="Загрузка файлов 1 сессии">
+      <change afterPath="$PROJECT_DIR$/Исходные материалы/Введение в задание.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Исходные материалы/Описание предметной области.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Исходные материалы/Руководство по стилю.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Исходные материалы/Требования и рекомендации.pdf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "sonkache"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sonkache/OOO_Tretya.git",
+    "accountId": "35a3dac2-a7f7-4168-93dd-ab78518a0a86"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="34Crzfv0OTot60tplfAsjzM5mzs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Sofia/IdeaProjects/Keys_2/Исходные материалы",
+    "onboarding.tips.debug.path": "C:/Users/Sofia/IdeaProjects/Keys_2/src/Main.java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sofia\IdeaProjects\Keys_2\Исходные материалы" />
+      <recent name="C:\Users\Sofia\IdeaProjects\Keys_2" />
+      <recent name="C:\Users\Sofia\IdeaProjects\Keys_2\Сессия_1" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f87b8db-30f9-4fa4-ab34-e2a7e7525236" name="Changes" comment="" />
+      <created>1760728662937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760728662937</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Создание проекта">
+      <option name="closed" value="true" />
+      <created>1760728713579</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760728713579</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Загрузка файлов 1 сессии">
+      <option name="closed" value="true" />
+      <created>1760729802844</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760729802844</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Создание проекта" />
+    <MESSAGE value="Загрузка файлов 1 сессии" />
+    <option name="LAST_COMMIT_MESSAGE" value="Загрузка файлов 1 сессии" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
