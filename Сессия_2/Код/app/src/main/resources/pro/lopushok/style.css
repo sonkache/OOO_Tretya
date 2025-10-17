@@ -1,0 +1,87 @@
+.root {
+    -fx-font-family: "Gabriola", "Segoe UI", "Arial";
+    -fx-font-size: 16px;
+    -fx-background-color: #FFFFFF;
+}
+
+.header-bar {
+    -fx-padding: 12;
+    -fx-spacing: 14;
+    -fx-border-width: 0 0 1 0;
+}
+
+.app-title {
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00CC76;
+}
+
+.button {
+    -fx-font-size: 18px;
+}
+.accent-btn {
+    -fx-background-color: #00CC76;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.card {
+    -fx-padding:18;
+    -fx-background-color:#ffffff;
+    -fx-border-color: #CEFFF9;
+    -fx-border-radius:10;
+    -fx-background-radius:10;
+}
+.card-selected {
+    -fx-border-color: #00CC76;
+    -fx-border-width:2;
+}
+.card-warn {
+    -fx-background-color: #FFECEC;
+}
+
+.label {
+    -fx-font-size: 18px;
+}
+
+.card .label {
+    -fx-font-size: 20px;
+}
+
+.card .card-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.page-btn {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #FFFFFF;
+    -fx-padding: 0 8 0 8;
+    -fx-font-size: 22px;
+}
+
+.page-num {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #FFFFFF;
+    -fx-padding: 0 8 0 8;
+    -fx-font-size: 22px;
+}
+
+.page-num-current {
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-font-size: 18px;
+}
+
+.combo-box {
+    -fx-font-size: 18px;
+}
+
+.toggle-button {
+    -fx-font-size: 18px;
+    -fx-padding: 6 12 6 12;
+}
+

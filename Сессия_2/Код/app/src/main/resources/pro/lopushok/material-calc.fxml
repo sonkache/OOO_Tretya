@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="pro.lopushok.ui.MaterialCalcController"
+      spacing="10" prefWidth="520"
+      stylesheets="@style.css">
+    <padding>
+        <Insets topRightBottomLeft="12"/>
+    </padding>
+
+    <HBox styleClass="header-bar" spacing="10">
+        <ImageView fx:id="logo" fitHeight="36" preserveRatio="true"/>
+        <Label fx:id="title" style="-fx-font-size:16px;-fx-font-weight:bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <GridPane hgap="8" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="40"/>
+            <ColumnConstraints percentWidth="60"/>
+        </columnConstraints>
+
+        <Label text="Материал:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="materialType" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Количество, шт:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="countField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Ширина, мм:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="widthField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Длина, мм:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="lengthField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button fx:id="calcBtn" text="Рассчитать"/>
+        <Label fx:id="result" style="-fx-font-weight:bold;"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pro.lopushok.ui.ProductListController"
+            prefWidth="1200" prefHeight="760"
+            stylesheets="@style.css">
+
+    <top>
+        <VBox spacing="8">
+            <HBox styleClass="header-bar">
+                <ImageView fx:id="logo" fitHeight="36" preserveRatio="true"/>
+                <Label text="Список продуктов" styleClass="app-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="calcBtn" text="Расчёт сырья" disable="true" styleClass="accent-btn"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <padding><Insets topRightBottomLeft="10"/></padding>
+                <TextField fx:id="searchField" promptText="Поиск по названию/описанию" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="typeFilter" promptText="Тип"/>
+                <ComboBox fx:id="sortCombo" promptText="Сортировка"/>
+                <ToggleButton fx:id="ascToggle" text="▲" prefWidth="44"/>
+                <Separator orientation="VERTICAL"/>
+                <Button fx:id="addBtn" text="Добавить"/>
+                <Button fx:id="editBtn" text="Редактировать" disable="true"/>
+                <Button fx:id="deleteBtn" text="Удалить" disable="true"/>
+                <Separator orientation="VERTICAL"/>
+                <Button fx:id="massSetBtn" text="Изменить цену" disable="true"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="selectionLabel" text="Выбрано: 0"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="listScroll" fitToWidth="true">
+            <VBox fx:id="cardsPane" spacing="12">
+                <padding><Insets topRightBottomLeft="12"/></padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="8" alignment="CENTER">
+            <padding><Insets topRightBottomLeft="10"/></padding>
+            <Button fx:id="prevBtn" text="&lt;" styleClass="page-btn"/>
+            <HBox fx:id="pageBar" spacing="8" alignment="CENTER"/>
+            <Button fx:id="nextBtn" text="&gt;" styleClass="page-btn"/>
+        </HBox>
+    </bottom>
+</BorderPane>

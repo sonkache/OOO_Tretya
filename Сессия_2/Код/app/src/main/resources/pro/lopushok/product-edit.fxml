@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pro.lopushok.ui.ProductEditController"
+            prefWidth="840" prefHeight="680"
+            stylesheets="@style.css">
+    <top>
+        <VBox spacing="8">
+            <HBox spacing="10" styleClass="header-bar">
+                <ImageView fx:id="logo" fitHeight="36" preserveRatio="true"/>
+                <Label fx:id="title" styleClass="app-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane hgap="12" vgap="10">
+            <padding><Insets topRightBottomLeft="12"/></padding>
+            <columnConstraints>
+                <ColumnConstraints prefWidth="160"/>
+                <ColumnConstraints percentWidth="35"/>
+                <ColumnConstraints prefWidth="160"/>
+                <ColumnConstraints percentWidth="35"/>
+            </columnConstraints>
+
+            <Label text="Артикул" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="articleField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Наименование" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+            <Label text="Тип" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="typeCombo" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Мин. цена для агента" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <TextField fx:id="minPriceField" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+            <Label text="Количество людей" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="peopleField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Номер цеха" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+            <TextField fx:id="workshopField" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+            <Label text="Изображение" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <HBox spacing="8" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                <TextField fx:id="imageField" HBox.hgrow="ALWAYS" editable="false"/>
+                <Button fx:id="browseBtn" text="Обзор"/>
+            </HBox>
+
+            <Label text="Описание" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextArea fx:id="descArea" prefRowCount="4" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+            <Label text="Материалы" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <VBox spacing="8" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                <HBox spacing="8">
+                    <Button fx:id="addMaterialBtn" text="Добавить материал"/>
+                    <Button fx:id="removeMaterialBtn" text="Удалить выбранный" disable="true"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <TableView fx:id="materialsTable" prefHeight="240">
+                    <columns>
+                        <TableColumn fx:id="colMaterial" text="Материал" prefWidth="3"/>
+                        <TableColumn fx:id="colQty" text="Кол-во" prefWidth="1"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding><Insets topRightBottomLeft="12"/></padding>
+            <Label fx:id="errorLabel" style="-fx-text-fill: #00CC76;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="saveBtn" text="Сохранить" styleClass="accent-btn"/>
+            <Button fx:id="deleteBtn" text="Удалить"/>
+            <Button fx:id="cancelBtn" text="Отмена"/>
+        </HBox>
+    </bottom>
+</BorderPane>
