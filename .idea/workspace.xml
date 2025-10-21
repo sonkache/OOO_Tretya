@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f87b8db-30f9-4fa4-ab34-e2a7e7525236" name="Changes" comment="Загрузка исходных данных">
-      <change afterPath="$PROJECT_DIR$/Сессия_1/README.md" afterDir="false" />
+    <list default="true" id="3f87b8db-30f9-4fa4-ab34-e2a7e7525236" name="Changes" comment="Написание README для сессии 1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,23 +13,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="4e7f326e3c550a541430ede01dd40e092a490641" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sonkache"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sonkache&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sonkache/OOO_Tretya.git",
-    "accountId": "35a3dac2-a7f7-4168-93dd-ab78518a0a86"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sonkache/OOO_Tretya.git&quot;,
+    &quot;accountId&quot;: &quot;35a3dac2-a7f7-4168-93dd-ab78518a0a86&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="34Crzfv0OTot60tplfAsjzM5mzs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,7 +47,8 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Sofia/IdeaProjects/Keys_2/Исходные материалы",
-    "onboarding.tips.debug.path": "C:/Users/Sofia/IdeaProjects/Keys_2/src/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/Sofia/IdeaProjects/Keys_2/src/Main.java",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -51,6 +57,21 @@
       <recent name="C:\Users\Sofia\IdeaProjects\Keys_2" />
       <recent name="C:\Users\Sofia\IdeaProjects\Keys_2\Сессия_1" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Keys_2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Keys_2" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,14 +106,34 @@
       <option name="project" value="LOCAL" />
       <updated>1760730243672</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Написание README для сессии 1">
+      <option name="closed" value="true" />
+      <created>1760731342930</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760731342930</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание проекта" />
     <MESSAGE value="Загрузка файлов 1 сессии" />
     <MESSAGE value="Загрузка исходных данных" />
-    <option name="LAST_COMMIT_MESSAGE" value="Загрузка исходных данных" />
+    <MESSAGE value="Написание README для сессии 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Написание README для сессии 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
