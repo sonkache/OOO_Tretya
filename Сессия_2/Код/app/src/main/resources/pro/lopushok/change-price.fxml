@@ -23,7 +23,7 @@
             <ColumnConstraints percentWidth="50"/>
         </columnConstraints>
 
-        <Label text="Увеличить на" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="Изменить на" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
         <TextField fx:id="valueField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
         <Label text="Среднее по выборке" GridPane.rowIndex="1" GridPane.columnIndex="0"/>

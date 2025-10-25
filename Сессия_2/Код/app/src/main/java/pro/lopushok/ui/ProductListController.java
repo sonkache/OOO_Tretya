@@ -56,7 +56,6 @@ public class ProductListController {
     public void initialize() {
         try { logo.setImage(new Image(getClass().getResourceAsStream("/Лопушок.png"))); } catch (Exception ignored) {}
         if (logo.getImage()==null) { try { logo.setImage(new Image(getClass().getResourceAsStream("/picture.png"))); } catch (Exception ignored) {} }
-
         typeFilter.getItems().setAll(dao.typesForFilter());
         typeFilter.getSelectionModel().selectFirst();
         sortCombo.getItems().addAll("Наименование", "Номер цеха", "Мин. цена для агента");
@@ -64,9 +63,7 @@ public class ProductListController {
         ascToggle.setSelected(true);
         ascToggle.setPrefWidth(44);
         ascToggle.setMinWidth(44);
-//        ascToggle.setStyle("-fx-padding: 0 0 0 0;");
         updateArrow();
-
         calcBtn.setMinWidth(Region.USE_PREF_SIZE);
         addBtn.setMinWidth(Region.USE_PREF_SIZE);
         editBtn.setMinWidth(Region.USE_PREF_SIZE);
@@ -77,15 +74,10 @@ public class ProductListController {
         sortCombo.setMinWidth(Region.USE_PREF_SIZE);
         prevBtn.setMinWidth(Region.USE_PREF_SIZE);
         nextBtn.setMinWidth(Region.USE_PREF_SIZE);
-
         searchField.textProperty().addListener((obs,o,n)->debouncedRefresh());
         typeFilter.valueProperty().addListener((obs,o,n)->refresh());
         sortCombo.valueProperty().addListener((obs,o,n)->refresh());
-        ascToggle.selectedProperty().addListener((obs,o,n)->{
-            updateArrow();
-            refresh();
-        });
-
+        ascToggle.selectedProperty().addListener((obs,o,n)->{ updateArrow(); refresh(); });
         prevBtn.setOnAction(e->goPrev());
         nextBtn.setOnAction(e->goNext());
         calcBtn.setOnAction(e->openCalc());
@@ -93,34 +85,20 @@ public class ProductListController {
         editBtn.setOnAction(e->onEdit());
         deleteBtn.setOnAction(e->onDelete());
         massSetBtn.setOnAction(e->onMassSet());
-
         Platform.runLater(() -> {
             Scene scene = cardsPane.getScene();
             if (scene != null) {
-                scene.getAccelerators().put(
-                        new KeyCodeCombination(KeyCode.DELETE),
-                        this::onDelete
-                );
-                scene.getAccelerators().put(
-                        new KeyCodeCombination(KeyCode.ENTER),
-                        this::onEdit
-                );
-                scene.getAccelerators().put(
-                        new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN),
-                        () -> searchField.requestFocus()
-                );
+                scene.getAccelerators().put(new KeyCodeCombination(KeyCode.DELETE), this::onDelete);
+                scene.getAccelerators().put(new KeyCodeCombination(KeyCode.ENTER), this::onEdit);
+                scene.getAccelerators().put(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN), () -> searchField.requestFocus());
                 scene.getRoot().requestFocus();
             }
         });
-
         updateSelectionUi();
         refresh();
     }
 
-    private void updateArrow() {
-        ascToggle.setText(ascToggle.isSelected() ? "▲" : "▼");
-    }
-
+    private void updateArrow() { ascToggle.setText(ascToggle.isSelected() ? "▲" : "▼"); }
     private void goPrev() { setPage(Math.max(0, currentPageIndex-1)); }
     private void goNext() { setPage(Math.min(totalPages-1, currentPageIndex+1)); }
 
@@ -171,20 +149,17 @@ public class ProductListController {
         String style = "card";
         if (p.isNotSoldLastMonth()) style = style + " card-warn";
         root.getStyleClass().addAll(style.split("\\s+"));
-
         CheckBox cb = new CheckBox();
         cb.setSelected(selectedMap.containsKey(p.getId()));
         cb.selectedProperty().addListener((o,ov,nv)->{
             if (nv) selectedMap.put(p.getId(), p); else selectedMap.remove(p.getId());
             updateSelectionUi();
         });
-
         ImageView iv = new ImageView(resolveImage(p.getImagePath()));
         iv.setFitWidth(160);
         iv.setFitHeight(120);
         iv.setPreserveRatio(false);
         iv.setSmooth(true);
-
         VBox center = new VBox(6);
         Label title = new Label((p.getTypeName()==null?"Тип продукта":p.getTypeName()) + " | " + p.getName());
         title.getStyleClass().add("card-title");
@@ -192,7 +167,6 @@ public class ProductListController {
         String mats = p.getMaterialsSummary()==null || p.getMaterialsSummary().isBlank() ? "нет данных" : p.getMaterialsSummary();
         Label materials = new Label("Материалы: " + materialsPreview(mats));
         center.getChildren().addAll(title, article, materials);
-
         VBox right = new VBox();
         right.setMinWidth(160);
         right.setAlignment(javafx.geometry.Pos.TOP_RIGHT);
@@ -208,12 +182,9 @@ public class ProductListController {
         minPrice.setMaxWidth(Double.MAX_VALUE);
         cost.setTextOverrun(javafx.scene.control.OverrunStyle.CLIP);
         minPrice.setTextOverrun(javafx.scene.control.OverrunStyle.CLIP);
-
-
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         root.getChildren().addAll(cb, iv, center, spacer, right);
-
         root.setOnMouseClicked(e -> {
             if (selectedCard != null) selectedCard.getStyleClass().remove("card-selected");
             selectedCard = root;
@@ -224,7 +195,6 @@ public class ProductListController {
             deleteBtn.setDisable(false);
             if (e.getClickCount() == 2) onEdit();
         });
-
         return root;
     }
 
@@ -232,12 +202,10 @@ public class ProductListController {
         pageBar.getChildren().clear();
         prevBtn.setDisable(currentPageIndex == 0);
         nextBtn.setDisable(currentPageIndex >= totalPages - 1);
-
         int maxShown = Math.min(totalPages, 10);
         int start = Math.max(0, currentPageIndex - 4);
         int end = Math.min(totalPages - 1, start + maxShown - 1);
         start = Math.max(0, end - maxShown + 1);
-
         for (int i = start; i <= end; i++) {
             Button b = new Button(String.valueOf(i + 1));
             b.getStyleClass().add("page-num");
@@ -282,7 +250,6 @@ public class ProductListController {
             Pane root = l.load();
             MaterialCalcController ctrl = l.getController();
             ctrl.setProduct(selectedProduct);
-
             Stage st = new Stage();
             st.initModality(Modality.APPLICATION_MODAL);
             st.setTitle("Расчёт сырья");
@@ -359,20 +326,56 @@ public class ProductListController {
         return arr[0]+", "+arr[1]+", "+arr[2]+", ...";
     }
 
+    private static final String BASE_IMAGE_URL = "http://217.144.185.104:8010/images/";
+
     private Image resolveImage(String path) {
+        // 1) Загружаем плейсхолдер один раз
+        Image placeholder;
+        try (InputStream is = getClass().getResourceAsStream("/picture.png")) {
+            placeholder = new Image(is);
+        } catch (Exception e) {
+            // как крайний случай — пустая картинка 1x1
+            return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=");
+        }
+
+        // 2) Нормализуем и отбрасываем «псевдо-пути» из БД
+        if (path == null) return placeholder;
+        String s = path.trim();
+        if (s.isEmpty()) return placeholder;
+        String low = s.toLowerCase(Locale.ROOT);
+        if (low.equals("не указано") || low.equals("отсутствует") || low.equals("нет") || low.equals("null")) {
+            return placeholder;
+        }
+
         try {
-            if (path!=null && !path.isBlank() && Files.exists(Paths.get(path)))
-                return new Image(Paths.get(path).toUri().toString(), true);
-        } catch (Exception ignored) {}
-        InputStream is = getClass().getResourceAsStream("/picture.png");
-        return new Image(is);
+            Image img;
+
+            // 3) Явные HTTP(S)
+            if (low.startsWith("http://") || low.startsWith("https://")) {
+                img = new Image(s, /*backgroundLoading*/ true);
+                return img.isError() ? placeholder : img;
+            }
+
+            // 4) Локальный абсолютный путь
+            java.nio.file.Path p = java.nio.file.Paths.get(s);
+            if (java.nio.file.Files.exists(p)) {
+                img = new Image(p.toUri().toString(), true);
+                return img.isError() ? placeholder : img;
+            }
+
+            // 5) Имя файла -> пробуем на вашем CDN/сервере
+            img = new Image(BASE_IMAGE_URL + s, true);
+            return img.isError() ? placeholder : img;
+
+        } catch (Exception ignore) {
+            return placeholder;
+        }
     }
+
 
     private void addStageIcons(Stage st) {
         try { st.getIcons().add(new Image(getClass().getResourceAsStream("/Лопушок.png"))); } catch (Exception ignored) {}
         try { st.getIcons().add(new Image(getClass().getResourceAsStream("/Лопушок.ico"))); } catch (Exception ignored) {}
-        if (st.getIcons().isEmpty()) {
-            try { st.getIcons().add(new Image(getClass().getResourceAsStream("/picture.png"))); } catch (Exception ignored) {}
-        }
+        if (st.getIcons().isEmpty()) { try { st.getIcons().add(new Image(getClass().getResourceAsStream("/picture.png"))); } catch (Exception ignored) {} }
     }
 }

@@ -15,6 +15,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>21.0.4</javafx.version>
+        <javafx.platform>win</javafx.platform>
+        <jpackage.plugin.version>1.7.1</jpackage.plugin.version>
+        <app.name>Lopushok</app.name>
+        <app.vendor>Lopushok</app.vendor>
+        <app.version>1.0.0</app.version>
+        <main.class>pro.lopushok.App</main.class>
     </properties>
 
     <dependencies>
@@ -28,22 +34,31 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
+            <classifier>${javafx.platform}</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
+            <classifier>${javafx.platform}</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
+            <classifier>${javafx.platform}</classifier>
         </dependency>
 
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>8.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.1.0</version>
         </dependency>
     </dependencies>
 
@@ -63,9 +78,59 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>pro.lopushok.App</mainClass>
+                    <mainClass>${main.class}</mainClass>
                     <launcher>lopushok</launcher>
                     <classpathScope>compile</classpathScope>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>${jpackage.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>make-exe</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jpackage</goal>
+                        </goals>
+                        <configuration>
+                            <input>${project.build.directory}</input>
+                            <destination>${project.build.directory}/installer</destination>
+                            <name>${app.name}</name>
+                            <vendor>${app.vendor}</vendor>
+                            <appVersion>${app.version}</appVersion>
+                            <type>EXE</type>
+                            <icon>${project.basedir}/src/main/resources/Лопушок.ico</icon>
+                            <winShortcut>true</winShortcut>
+                            <winMenu>true</winMenu>
+                            <winDirChooser>true</winDirChooser>
+                            <winConsole>false</winConsole>
+                            <mainJar>${project.build.finalName}.jar</mainJar>
+                            <mainClass>${main.class}</mainClass>
+                            <addModules>javafx.controls,javafx.fxml,javafx.graphics</addModules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>${main.class}</Main-Class>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
